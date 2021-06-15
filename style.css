@@ -1,0 +1,57 @@
+.wrapper {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.draw-area {
+  border: 1px solid #000;
+}
+
+.clear-button {
+  display: block;
+  width: 200px;
+  font-size: 16px;
+  padding: 0.6rem;
+  margin: 2rem auto;
+  border: none;
+  border-radius: 15px;
+  background-color: #e64529;
+  color: #fff;
+}
+
+.download-button {
+  display: block;
+  text-decoration: none;
+  width: 200px;
+  font-size: 16px;
+  padding: 0.6rem;
+  margin: 2rem auto;
+  border: none;
+  border-radius: 15px;
+  background-color: #2991e6;
+  color: #fff;
+}
+
+.color-box {
+  width: 20%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.color-change {
+  margin-left: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.color-picker {
+  margin-top: 50px;
+}
+
+.current {
+  border: 3px solid #000;
+}
