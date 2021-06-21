@@ -13,8 +13,6 @@ window.addEventListener("load", () => {
   const initialize = () => {
     canvas.width = canvasParent.clientWidth;
     canvas.height = canvasParent.clientHeight;
-    context.fillStyle = "rgb(255,255,255)";
-    context.fillRect(0, 0, canvas.width, canvas.height);
     context.strokeStyle = "#000000";
   };
 
@@ -41,12 +39,10 @@ window.addEventListener("load", () => {
 
   const dragStart = () => {
     context.beginPath();
-    console.log(context.strokeStyle);
     isDrag = true;
   };
 
   const dragEnd = () => {
-    context.closePath();
     isDrag = false;
 
     lastPosition.x = null;
@@ -57,6 +53,10 @@ window.addEventListener("load", () => {
     const base64 = canvas.toDataURL("image/png");
     this.href = base64;
     this.download = "draw.png";
+  };
+
+  const allClear = () => {
+    context.clearRect(0, 0, canvas.width, canvas.height);
   };
 
   const initEventHandler = () => {
@@ -72,7 +72,7 @@ window.addEventListener("load", () => {
       );
     });
 
-    clearButton.addEventListener("click", initialize);
+    clearButton.addEventListener("click", allClear);
     downloadButton.addEventListener("click", download);
 
     colorInput.addEventListener("change", function () {
