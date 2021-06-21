@@ -3,6 +3,13 @@
   text-align: center;
 }
 
+.canvas-parent {
+  margin: 0 auto;
+  width: 50%;
+  min-width: 500px;
+  height: 50vh;
+}
+
 .draw-area {
   border: 1px solid #000;
 }
@@ -46,6 +53,10 @@
   height: 30px;
   border-radius: 15px;
   cursor: pointer;
+}
+
+.current {
+  border: 3px solid #000;
 }
 
 .color-picker {

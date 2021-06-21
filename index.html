@@ -10,12 +10,12 @@
   <body>
     <div class="wrapper">
       <h1>お絵かきアプリ</h1>
-      <canvas
+      <div id="canvasParent" class="canvas-parent">
+        <canvas
         id="draw-area"
         class="draw-area"
-        width="400px"
-        height="400px"
       ></canvas>
+      </div>
       <div>
         <button id="clear-button" class="clear-button">全消し</button>
       </div>
@@ -23,7 +23,7 @@
         <a id="download" class="download-button" href="">ダウンロード</a>
       </div>
       <div id="color-box" class="color-box">
-        <div class="color-change" style="background-color: #000000;" data-color="#000000"></div>
+        <div class="color-change current" style="background-color: #000000;" data-color="#000000"></div>
         <div class="color-change" style="background-color: #ff0000;" data-color="#ff0000"></div>
         <div class="color-change" style="background-color: #ffff00;" data-color="#ffff00"></div>
         <div class="color-change" style="background-color: #0000ff;" data-color="#0000ff"></div>
