@@ -62,31 +62,35 @@ window.addEventListener("load", () => {
   const initEventHandler = () => {
     const clearButton = document.querySelector("#clear-button");
     const downloadButton = document.querySelector("#download");
-    const colorButtons = document.querySelectorAll(".color-change");
+    let colorButtons = document.querySelectorAll(".color-change");
     const colorInput = document.querySelector("#color");
 
+    const selectColor = function(colorButton) {
+      context.strokeStyle = colorButton.dataset.color;
+      colorButtons.forEach(button => button.classList.remove("current"));
+      colorButton.classList.add("current");
+    }
+
     colorButtons.forEach((colorButton) => {
-      colorButton.addEventListener(
-        "click",
-        () => (context.strokeStyle = colorButton.dataset.color)
-      );
+      colorButton.addEventListener("click", () => selectColor(colorButton));
     });
 
     clearButton.addEventListener("click", allClear);
     downloadButton.addEventListener("click", download);
 
     colorInput.addEventListener("change", function () {
-      const newElement = document.createElement("div");
-      newElement.setAttribute("class", "color-change");
-      newElement.setAttribute("style", `background-color: ${this.value}`);
-      newElement.setAttribute("data-color", `${this.value}`);
-      newElement.addEventListener(
+      const newColor = document.createElement("div");
+      newColor.setAttribute("class", "color-change");
+      newColor.setAttribute("style", `background-color: ${this.value}`);
+      newColor.setAttribute("data-color", `${this.value}`);
+      newColor.addEventListener(
         "click",
-        () => (context.strokeStyle = newElement.dataset.color)
+        () => (context.strokeStyle = newColor.dataset.color)
       );
-      context.strokeStyle = newElement.dataset.color;
       const parent = document.getElementById("color-box");
-      parent.appendChild(newElement);
+      parent.appendChild(newColor);
+      selectColor(newColor);
+      colorButtons = [...colorButtons, newColor];
     });
 
     canvas.addEventListener("mousedown", dragStart);
