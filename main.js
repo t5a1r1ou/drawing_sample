@@ -23,7 +23,7 @@ window.addEventListener("load", () => {
 
     context.lineWidth = 3;
 
-    if ((lastPosition, x == null || lastPosition.y === null)) {
+    if ((lastPosition.x == null || lastPosition.y === null)) {
       context.moveTo(x, y);
     } else {
       context.moveTo(lastPosition.x, lastPosition.y);
@@ -92,9 +92,7 @@ window.addEventListener("load", () => {
     canvas.addEventListener("mousedown", dragStart);
     canvas.addEventListener("mouseup", dragEnd);
     canvas.addEventListener("mouseout", dragEnd);
-    canvas.addEventListener("mousemove", (event) => {
-      draw(event.layerX, event.layerY);
-    });
+    canvas.addEventListener("mousemove", (event) => draw(event.offsetX, event.offsetY));
     window.addEventListener("resize", resize);
   };
 
